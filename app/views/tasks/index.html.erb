@@ -1,0 +1,12 @@
+<h1>MY tasks</h1>
+<ul>
+<% @tasks.each do |piece| %>
+<% if piece.completed == nil %>
+<% @check = '*unfinished* ' %>
+<% else%>
+<% @check = " *finished* " %>
+<% end %>
+<li> <%= @check %> <%= link_to piece.title, task_path(piece)%> <%= link_to "Delete", task_path(piece), method: :delete, data: { confirm: "Are you sure?" } %></li>
+<%  end %>
+</ul>
+<p><%= link_to "add new things", new_path %> </p>
